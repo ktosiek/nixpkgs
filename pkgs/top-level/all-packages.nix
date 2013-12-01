@@ -4605,6 +4605,10 @@ let
 
   judy = callPackage ../development/libraries/judy { };
 
+  keybinder = callPackage ../development/libraries/keybinder {
+    automake = automake111x;
+  };
+
   krb5 = callPackage ../development/libraries/kerberos/krb5.nix { };
 
   lcms = lcms1;
@@ -8262,6 +8266,11 @@ let
 
   kino = callPackage ../applications/video/kino {
     inherit (gnome) libglade;
+  };
+
+  kupfer = callPackage ../applications/misc/kupfer {
+    inherit (gnome) gnome_doc_utils;
+    inherit (pythonPackages) pyxdg;
   };
 
   lame = callPackage ../applications/audio/lame { };
