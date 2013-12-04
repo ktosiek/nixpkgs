@@ -1,11 +1,12 @@
-{ stdenv, fetchurl, keybinder, python, gtk2, dbus_python, librsvg, dbus_tools, pygtk, pyxdg, gettext, intltool, perl, docutils, gnome_doc_utils, makeWrapper }:
+{ stdenv, fetchurl, keybinder, python, gtk2, dbus_python, librsvg, dbus_tools, pygtk
+, pyxdg, gettext, intltool, perl, docutils, gnome_doc_utils, makeWrapper
+, pysqlite, qrencode }:
 
 stdenv.mkDerivation rec {
   # TODO: python modules:
   #  * wnck - allows Identify and focus running applications
   #  * keyring - allows Required by plugins that save passwords 
   #  * gnome - allows Log out cleanly with session managers *OTHER* than gnome-session >= 2.24
-  #  * _sqlite3 - for firefox plugin
   #  * qrencode - for show_qrcode plugin
   name = "kupfer-${version}";
   version = "208";
@@ -15,7 +16,7 @@ stdenv.mkDerivation rec {
     sha256 = "014w50h5va3izi6wcq542i3x93m968gy36ln21cs54ab7vi8zpk5";
   };
 
-  buildInputs = [ librsvg gtk2 keybinder python pygtk pyxdg gettext dbus_python dbus_tools perl intltool docutils gnome_doc_utils makeWrapper ];
+  buildInputs = [ librsvg qrencode pysqlite gtk2 keybinder python pygtk pyxdg gettext dbus_python dbus_tools perl intltool docutils gnome_doc_utils makeWrapper ];
 
   configurePhase = "python waf configure --prefix=$out";
 

@@ -8271,6 +8271,7 @@ let
   kupfer = callPackage ../applications/misc/kupfer {
     inherit (gnome) gnome_doc_utils;
     inherit (pythonPackages) pyxdg;
+    pysqlite = pythonPackages.sqlite3;
   };
 
   lame = callPackage ../applications/audio/lame { };
