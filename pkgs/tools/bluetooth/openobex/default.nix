@@ -16,6 +16,8 @@ stdenv.mkDerivation rec {
     sed -i "s!/lib/udev!$out/lib/udev!" udev/CMakeLists.txt
     '';
 
+  postInstall = "mv $out/lib64/pkgconfig $out/lib/";
+
   meta = {
     homepage = http://dev.zuckschwerdt.org/openobex/;
     description = "An open source implementation of the Object Exchange (OBEX) protocol";
