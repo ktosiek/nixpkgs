@@ -1,0 +1,4 @@
+From: Tomasz Kontusz <tomasz.kontusz@gmail.com>
+Subject: [PATCH] topic/blueman
+
+Fix blueman not building
