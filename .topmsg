@@ -1,4 +1,6 @@
 From: Tomasz Kontusz <tomasz.kontusz@gmail.com>
 Subject: [PATCH] make stdenv build on Debian Squeeze
 
-<patch description>
+Pass SHELL=${stdenv.shell} to make in acl and attr.
+This is needed, as both of those packages assume SHELL is bash-like,
+and it's dash od Debian.
