@@ -24,7 +24,8 @@ stdenv.mkDerivation rec {
     ''
       wrapProgram $out/bin/d-feet \
         --prefix PYTHONPATH : "$(toPythonPath $out):$(toPythonPath ${pygobject3})" \
-        --prefix GI_TYPELIB_PATH : "${gi_typelib_path}"
+        --prefix GI_TYPELIB_PATH : "${gi_typelib_path}" \
+        --prefix LD_LIBRARY_PATH : "${gtk3}/lib:${atk}/lib"
     '';
 
   meta = {
