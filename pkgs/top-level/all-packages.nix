@@ -3611,6 +3611,10 @@ let
 
   dejagnu = callPackage ../development/tools/misc/dejagnu { };
 
+  dfeet = callPackage ../development/tools/misc/d-feet {
+    inherit (pythonPackages) pep8;
+  };
+
   ddd = callPackage ../development/tools/misc/ddd { };
 
   distcc = callPackage ../development/tools/misc/distcc { };
