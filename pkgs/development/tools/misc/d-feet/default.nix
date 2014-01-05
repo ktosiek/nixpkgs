@@ -1,4 +1,4 @@
-{ stdenv, pkgconfig, fetchurl, itstool, intltool, libxml2, glib, gtk3, pango, gdk_pixbuf, atk, pep8, python, makeWrapper, pygobject3, gobjectIntrospection }:
+{ stdenv, pkgconfig, fetchurl, itstool, intltool, libxml2, glib, gtk3, gnome_icon_theme, pango, gdk_pixbuf, atk, pep8, python, makeWrapper, pygobject3, gobjectIntrospection, libwnck3 }:
 
 let
   version = "${major}.8";
@@ -14,18 +14,20 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [
-    pkgconfig libxml2 itstool intltool glib gtk3 pep8 python makeWrapper pygobject3
+    pkgconfig libxml2 itstool intltool glib gtk3 pep8 python makeWrapper pygobject3 libwnck3
   ];
 
+  # TODO: shouldn't this be created automagicaly?
   gi_typelib_path = stdenv.lib.concatStringsSep ":" (
-    map (pkg: "${pkg}/lib/girepository-1.0") [ gtk3 pango gdk_pixbuf atk gobjectIntrospection ]);
+    map (pkg: "${pkg}/lib/girepository-1.0") [ gtk3 pango gdk_pixbuf atk gobjectIntrospection libwnck3 ]);
 
   postInstall =
     ''
       wrapProgram $out/bin/d-feet \
         --prefix PYTHONPATH : "$(toPythonPath $out):$(toPythonPath ${pygobject3})" \
         --prefix GI_TYPELIB_PATH : "${gi_typelib_path}" \
-        --prefix LD_LIBRARY_PATH : "${gtk3}/lib:${atk}/lib"
+        --prefix LD_LIBRARY_PATH : "${gtk3}/lib:${atk}/lib:${libwnck3}/lib" \
+        --prefix XDG_DATA_DIRS : "${gnome_icon_theme}/share:$out/share"
     '';
 
   meta = {
