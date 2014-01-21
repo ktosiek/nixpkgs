@@ -5,7 +5,7 @@
        "-nolisten", "tcp",
        "-noreset",
 +      "-xkbdir", getenv("XKB_DIR"),
-+      "-logfile", "/dev/null",
++      "-logfile", "/tmp/X-bumblebee",
        "-verbose", "3",
        "-isolateDevice", pci_id,
        "-modulepath",
