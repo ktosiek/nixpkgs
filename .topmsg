@@ -1,0 +1,5 @@
+From: Tomasz Kontusz <tomasz.kontusz@gmail.com>
+Subject: [PATCH] Upgrade bumblebee
+
+ * Bump bumblebee to 3.2.1
+ * Remove config.patch - options it added can be passed to ./configure
