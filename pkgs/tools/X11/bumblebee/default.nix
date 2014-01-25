@@ -61,9 +61,6 @@ let
     ignoreCollisions = true;
   };
 
-  # Custom X11 configuration for the additional xserver instance.
-  xorgConf = ./xorg.conf.nvidia;
-
 in stdenv.mkDerivation {
   inherit name;
 
@@ -110,11 +107,6 @@ in stdenv.mkDerivation {
     wrapProgram "$out/bin/optirun" \
       --prefix PATH : "${commonEnv}/sbin:${commonEnv}/bin" \
       --prefix LD_LIBRARY_PATH : "${commonEnv}/lib" \
-      --set BUMBLEBEE_DRIVER "nvidia" \
-      --set BUMBLEBEE_LDPATH_NVIDIA "${commonEnv}/lib" \
-      --set BUMBLEBEE_MODPATH_NVIDIA "${commonEnv}/lib/xorg/modules"
-
-    cp ${xorgConf} "$out/etc/bumblebee/xorg.conf.nvidia"
   '';
 
   meta = {
