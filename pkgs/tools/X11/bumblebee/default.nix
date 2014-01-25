@@ -8,19 +8,7 @@
 
 # To test: make sure that the 'bbswitch' kernel module is installed,
 # then run 'bumblebeed' as root and 'optirun glxgears' as user.
-# To use at startup, add e.g. to configuration.nix:
-# jobs = {
-#   bumblebeed = {
-#     name = "bumblebeed";
-#     description = "Manages the Optimus video card";
-#     startOn = "started udev and started syslogd";
-#     stopOn = "starting shutdown";
-#     exec = "bumblebeed --use-syslog";
-#     path = [ pkgs.bumblebee ];
-#     environment = { MODULE_DIR = "${config.system.modulesTree}/lib/modules"; };
-#     respawn = true;
-#   };
-# };
+# To use at startup, see hardware.bumblebee options.
 
 # This nix expression supports for now only the native nvidia driver.
 # It should not be hard to generalize this approach to support the
