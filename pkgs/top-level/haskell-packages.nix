@@ -522,6 +522,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
 
   abstractPar = callPackage ../development/libraries/haskell/abstract-par {};
 
+  adjunctions = callPackage ../development/libraries/haskell/adjunctions {};
+
   aeson_0_6_2_1 = callPackage ../development/libraries/haskell/aeson/0.6.2.1.nix {};
   aeson_0_7_0_0 = callPackage ../development/libraries/haskell/aeson/0.7.0.0.nix {};
   aeson = self.aeson_0_6_2_1;
@@ -539,6 +541,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   alsaPcm = callPackage ../development/libraries/haskell/alsa-pcm {};
 
   amqp = callPackage ../development/libraries/haskell/amqp {};
+
+  annotatedWlPprint = callPackage ../development/libraries/haskell/annotated-wl-pprint {};
 
   appar = callPackage ../development/libraries/haskell/appar {};
 
@@ -567,6 +571,10 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
 
   asn1Data = callPackage ../development/libraries/haskell/asn1-data {};
 
+  asn1Encoding = callPackage ../development/libraries/haskell/asn1-encoding {};
+
+  asn1Parse = callPackage ../development/libraries/haskell/asn1-parse {};
+
   asn1Types = callPackage ../development/libraries/haskell/asn1-types {};
 
   AspectAG = callPackage ../development/libraries/haskell/AspectAG {};
@@ -579,6 +587,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   atomicPrimops = callPackage ../development/libraries/haskell/atomic-primops {};
 
   attempt = callPackage ../development/libraries/haskell/attempt {};
+
+  attoLisp = callPackage ../development/libraries/haskell/atto-lisp {};
 
   attoparsec_0_10_4_0 = callPackage ../development/libraries/haskell/attoparsec/0.10.4.0.nix {};
   attoparsec_0_11_1_0 = callPackage ../development/libraries/haskell/attoparsec/0.11.1.0.nix {};
@@ -1034,6 +1044,9 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
 
   executablePath = callPackage ../development/libraries/haskell/executable-path {};
 
+  fay = callPackage ../development/libraries/haskell/fay {};
+  fayBase = callPackage ../development/libraries/haskell/fay-base {};
+
   filepath_1_3_0_0 = callPackage ../development/libraries/haskell/filepath {};
   filepath = null; # a core package in recent GHCs
 
@@ -1432,6 +1445,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
 
   hxtUnicode = callPackage ../development/libraries/haskell/hxt-unicode {};
 
+  iCalendar = callPackage ../development/libraries/haskell/iCalendar {};
+
   idna = callPackage ../development/libraries/haskell/idna {};
 
   IfElse = callPackage ../development/libraries/haskell/IfElse {};
@@ -1548,7 +1563,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   ListZipper = callPackage ../development/libraries/haskell/ListZipper {};
 
   llvmGeneral = callPackage ../development/libraries/haskell/llvm-general {
-    llvmConfig = pkgs.llvm;
+    # !!! llvm-general pre-release supports 3.4...
+    llvmConfig = pkgs.llvm_33;
   };
 
   llvmGeneralPure = callPackage ../development/libraries/haskell/llvm-general-pure {};
@@ -1582,6 +1598,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   mersenneRandomPure64 = callPackage ../development/libraries/haskell/mersenne-random-pure64 {};
 
   midi = callPackage ../development/libraries/haskell/midi {};
+
+  mime = callPackage ../development/libraries/haskell/mime {};
 
   minimorph = callPackage ../development/libraries/haskell/minimorph {};
 
@@ -1767,6 +1785,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
 
   pathPieces = callPackage ../development/libraries/haskell/path-pieces {};
 
+  patience = callPackage ../development/libraries/haskell/patience {};
+
   pandoc = callPackage ../development/libraries/haskell/pandoc {};
 
   pandocCiteproc = callPackage ../development/libraries/haskell/pandoc-citeproc {};
@@ -1871,6 +1891,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   postgresqlSimple = callPackage ../development/libraries/haskell/postgresql-simple {};
 
   ppm = callPackage ../development/libraries/haskell/ppm {};
+
+  pqueue = callPackage ../development/libraries/haskell/pqueue {};
 
   prettyclass = callPackage ../development/libraries/haskell/prettyclass {};
 
@@ -2170,6 +2192,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
 
   socketActivation = callPackage ../development/libraries/haskell/socket-activation {};
 
+  sourcemap = callPackage ../development/libraries/haskell/sourcemap {};
+
   split_0_2_1_1 = callPackage ../development/libraries/haskell/split/0.2.1.1.nix {};
   split_0_2_2 = callPackage ../development/libraries/haskell/split/0.2.2.nix {};
   split = self.split_0_2_2;
@@ -2309,8 +2333,6 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   timeCompat = callPackage ../development/libraries/haskell/time-compat {};
 
   tls = callPackage ../development/libraries/haskell/tls {};
-
-  tlsExtra = callPackage ../development/libraries/haskell/tls-extra {};
 
   transformers_0_2_2_0 = callPackage ../development/libraries/haskell/transformers/0.2.2.0.nix {};
   transformers_0_3_0_0 = if (pkgs.stdenv.lib.versionOlder ghc.version "7.7") then
@@ -2488,6 +2510,14 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
 
   wxdirect = callPackage ../development/libraries/haskell/wxHaskell/wxdirect.nix {};
 
+  x509 = callPackage ../development/libraries/haskell/x509 {};
+
+  x509Store = callPackage ../development/libraries/haskell/x509-store {};
+
+  x509System = callPackage ../development/libraries/haskell/x509-system {};
+
+  x509Validation = callPackage ../development/libraries/haskell/x509-validation {};
+
   X11 = callPackage ../development/libraries/haskell/X11 {};
 
   X11Xft = callPackage ../development/libraries/haskell/X11-xft {};
@@ -2545,8 +2575,6 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   yesodJson = callPackage ../development/libraries/haskell/yesod-json {};
 
   yesodPersistent = callPackage ../development/libraries/haskell/yesod-persistent {};
-
-  yesodPlatform = callPackage ../development/libraries/haskell/yesod-platform {};
 
   yesodRoutes = callPackage ../development/libraries/haskell/yesod-routes {};
 
