@@ -4,3 +4,4 @@ Subject: [PATCH] Upgrade bumblebee
  * Bump bumblebee to 3.2.1
  * Remove config.patch - options it added can be passed to ./configure
  * Remove the provided xorg.conf
+ * Make secondary X11 log to /var/log/X.bumblebee.log
