@@ -100,6 +100,6 @@ in stdenv.mkDerivation {
   meta = {
     homepage = http://github.com/Bumblebee-Project/Bumblebee;
     description = "Daemon for managing Optimus videocards (power-on/off, spawns xservers)";
-    license = stdenv.lib.licenses.gplv3;
+    license = stdenv.lib.licenses.gpl3;
   };
 }
