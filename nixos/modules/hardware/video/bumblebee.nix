@@ -29,7 +29,7 @@ with pkgs.lib;
       script = "bumblebeed --use-syslog";
       environment = { MODULE_DIR = "${config.system.modulesTree}/lib/modules"; };
       path = [ kernel.bbswitch pkgs.bumblebee ];
-      unitConfig = {
+      serviceConfig = {
         Restart = "always";
         RestartSec = 60;
       };
