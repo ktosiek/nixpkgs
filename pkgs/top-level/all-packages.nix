@@ -1341,6 +1341,8 @@ let
 
   duply = callPackage ../tools/backup/duply { };
 
+  deja-dup = callPackage ../tools/backup/deja-dup { };
+
   dvdisaster = callPackage ../tools/cd-dvd/dvdisaster { };
 
   dvdplusrwtools = callPackage ../tools/cd-dvd/dvd+rw-tools { };
