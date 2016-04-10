@@ -8,6 +8,7 @@
 { stripLen ? 0, ... }@args:
 
 fetchurl ({
+  name = "${args.name}.normalized.patch";
   postFetch = ''
     tmpfile="$TMPDIR/${args.sha256}"
     "${patchutils}/bin/lsdiff" "$out" \
@@ -20,4 +21,4 @@ fetchurl ({
     mv "$tmpfile" "$out"
     ${args.postFetch or ""}
   '';
-} // builtins.removeAttrs args ["stripLen"])
+} // builtins.removeAttrs args ["stripLen" "name"])
